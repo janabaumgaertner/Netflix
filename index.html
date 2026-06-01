@@ -4,9 +4,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Movie Access</title>
+<title>Exclusive Access</title>
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -20,37 +21,26 @@ display:flex;
 justify-content:center;
 align-items:center;
 background:
-linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.90)),
+linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.88)),
 url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1600');
 background-size:cover;
 background-position:center;
 overflow:hidden;
-animation:zoomBg 20s ease-in-out infinite alternate;
-}
-
-@keyframes zoomBg{
-from{
-background-size:100%;
-}
-to{
-background-size:110%;
-}
 }
 
 .card{
-width:92%;
-max-width:650px;
-background:rgba(10,10,10,.88);
-backdrop-filter:blur(15px);
+width:90%;
+max-width:580px;
+background:rgba(12,12,12,.88);
+backdrop-filter:blur(12px);
 padding:45px;
-border-radius:28px;
+border-radius:24px;
 text-align:center;
 border:1px solid rgba(255,255,255,.08);
 
 box-shadow:
-0 0 30px rgba(229,9,20,.25),
-0 0 60px rgba(229,9,20,.15),
-0 20px 80px rgba(0,0,0,.75);
+0 20px 60px rgba(0,0,0,.6),
+0 0 40px rgba(229,9,20,.15);
 
 animation:cardFloat 4s ease-in-out infinite;
 }
@@ -65,39 +55,39 @@ transform:translateY(-6px);
 }
 
 .logo{
-font-size:48px;
+font-size:42px;
 font-weight:900;
 color:#e50914;
-letter-spacing:2px;
+letter-spacing:1px;
 margin-bottom:12px;
 
 text-shadow:
-0 0 15px rgba(229,9,20,.7),
-0 0 35px rgba(229,9,20,.4);
+0 0 10px rgba(229,9,20,.4),
+0 0 25px rgba(229,9,20,.3);
 }
 
 .badge{
 display:inline-block;
-padding:8px 16px;
+padding:8px 14px;
 background:rgba(229,9,20,.15);
 border:1px solid rgba(229,9,20,.4);
 color:#ffb3b3;
 border-radius:50px;
 font-size:13px;
-margin-bottom:20px;
+margin-bottom:18px;
 }
 
 h1{
 color:white;
-font-size:38px;
-margin-bottom:15px;
+font-size:34px;
+margin-bottom:12px;
 }
 
 .desc{
-color:#d8d8d8;
+color:#d6d6d6;
 line-height:1.8;
 font-size:17px;
-margin-bottom:25px;
+margin-bottom:28px;
 }
 
 .progress-container{
@@ -105,7 +95,7 @@ height:12px;
 background:#2b2b2b;
 border-radius:50px;
 overflow:hidden;
-margin-bottom:15px;
+margin-bottom:14px;
 }
 
 .progress{
@@ -128,58 +118,41 @@ background-position:100% 50%;
 .status{
 color:#bfbfbf;
 font-size:14px;
-margin-bottom:20px;
-}
-
-.stats{
-display:flex;
-justify-content:space-around;
-margin:25px 0;
-padding:15px 0;
-border-top:1px solid rgba(255,255,255,.08);
-border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.stats div{
-color:white;
-font-size:14px;
-}
-
-.stats strong{
-display:block;
-font-size:22px;
-color:#e50914;
-margin-bottom:5px;
+margin-bottom:28px;
 }
 
 .verify{
 display:flex;
 justify-content:center;
 align-items:center;
-gap:18px;
-margin:30px 0;
+gap:16px;
+margin-bottom:30px;
 color:white;
-font-size:28px;
+font-size:24px;
 font-weight:700;
 }
 
 .verify input{
-width:38px;
-height:38px;
+width:34px;
+height:34px;
 cursor:pointer;
-animation:checkboxPulse 1.6s infinite;
+animation:checkboxPulse 1.8s infinite;
 }
 
 @keyframes checkboxPulse{
+
 0%{
 transform:scale(1);
 }
+
 50%{
-transform:scale(1.15);
+transform:scale(1.12);
 }
+
 100%{
 transform:scale(1);
 }
+
 }
 
 button{
@@ -189,29 +162,20 @@ border:none;
 border-radius:14px;
 background:#e50914;
 color:white;
-font-size:22px;
+font-size:20px;
 font-weight:800;
 cursor:pointer;
 transition:.25s;
 opacity:.55;
 
-animation:glowBtn 2s infinite;
-}
-
-@keyframes glowBtn{
-0%{
-box-shadow:0 0 10px rgba(229,9,20,.3);
-}
-50%{
-box-shadow:0 0 35px rgba(229,9,20,.8);
-}
-100%{
-box-shadow:0 0 10px rgba(229,9,20,.3);
-}
+box-shadow:
+0 0 20px rgba(229,9,20,.3);
 }
 
 button:hover{
 transform:translateY(-3px);
+box-shadow:
+0 0 35px rgba(229,9,20,.5);
 }
 
 button:disabled{
@@ -219,7 +183,7 @@ cursor:not-allowed;
 }
 
 .footer{
-margin-top:22px;
+margin-top:24px;
 font-size:13px;
 color:#9f9f9f;
 }
@@ -231,7 +195,7 @@ padding:30px;
 }
 
 .logo{
-font-size:36px;
+font-size:34px;
 }
 
 h1{
@@ -239,23 +203,19 @@ font-size:28px;
 }
 
 .verify{
-font-size:22px;
+font-size:20px;
 }
 
 .verify input{
-width:34px;
-height:34px;
-}
-
-.stats strong{
-font-size:18px;
+width:30px;
+height:30px;
 }
 
 }
+
 </style>
 
 </head>
-
 <body>
 
 <div class="card">
@@ -266,10 +226,11 @@ font-size:18px;
 ✓ VERIFIED CONTENT PORTAL
 </div>
 
-<h1>Unlock Trending Movie Content</h1>
+<h1>Exclusive Content Available</h1>
 
 <p class="desc">
-Trending movie content and fan-favorite updates are available. Complete the verification step below to continue.
+Trending movie content and fan favorites are ready to access.
+Complete verification to continue.
 </p>
 
 <div class="progress-container">
@@ -277,24 +238,7 @@ Trending movie content and fan-favorite updates are available. Complete the veri
 </div>
 
 <div class="status">
-Access Verification: 85%
-</div>
-
-<div class="stats">
-<div>
-<strong>1.2M+</strong>
-Fans
-</div>
-
-<div>
-<strong>24K+</strong>
-Online
-</div>
-
-<div>
-<strong>98%</strong>
-Verified
-</div>
+Verification Progress: 85%
 </div>
 
 <div class="verify">
@@ -320,11 +264,15 @@ const btn = document.getElementById("continueBtn");
 verify.addEventListener("change",()=>{
 
 if(verify.checked){
+
 btn.disabled=false;
 btn.style.opacity="1";
+
 }else{
+
 btn.disabled=true;
 btn.style.opacity=".55";
+
 }
 
 });
