@@ -7,11 +7,12 @@
 <title>Exclusive Access</title>
 
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, sans-serif;
+font-family:Arial,sans-serif;
 }
 
 body{
@@ -20,7 +21,7 @@ display:flex;
 justify-content:center;
 align-items:center;
 background:
-linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.85)),
+linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.88)),
 url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1600');
 background-size:cover;
 background-position:center;
@@ -29,93 +30,152 @@ overflow:hidden;
 
 .card{
 width:90%;
-max-width:500px;
-background:rgba(20,20,20,.85);
-backdrop-filter:blur(10px);
-padding:35px;
-border-radius:20px;
+max-width:580px;
+background:rgba(12,12,12,.88);
+backdrop-filter:blur(12px);
+padding:45px;
+border-radius:24px;
 text-align:center;
-border:1px solid rgba(255,255,255,.1);
-box-shadow:0 0 30px rgba(0,0,0,.5);
+border:1px solid rgba(255,255,255,.08);
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.6),
+0 0 40px rgba(229,9,20,.15);
+
+animation:cardFloat 4s ease-in-out infinite;
+}
+
+@keyframes cardFloat{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-6px);
+}
 }
 
 .logo{
-font-size:34px;
-font-weight:bold;
+font-size:42px;
+font-weight:900;
 color:#e50914;
-margin-bottom:10px;
+letter-spacing:1px;
+margin-bottom:12px;
+
+text-shadow:
+0 0 10px rgba(229,9,20,.4),
+0 0 25px rgba(229,9,20,.3);
+}
+
+.badge{
+display:inline-block;
+padding:8px 14px;
+background:rgba(229,9,20,.15);
+border:1px solid rgba(229,9,20,.4);
+color:#ffb3b3;
+border-radius:50px;
+font-size:13px;
+margin-bottom:18px;
 }
 
 h1{
 color:white;
-font-size:28px;
-margin-bottom:10px;
+font-size:34px;
+margin-bottom:12px;
 }
 
 .desc{
-color:#cfcfcf;
-line-height:1.6;
-margin-bottom:25px;
+color:#d6d6d6;
+line-height:1.8;
+font-size:17px;
+margin-bottom:28px;
 }
 
 .progress-container{
+height:12px;
 background:#2b2b2b;
-height:10px;
-border-radius:30px;
+border-radius:50px;
 overflow:hidden;
-margin-bottom:15px;
+margin-bottom:14px;
 }
 
 .progress{
 height:100%;
 width:85%;
-background:#e50914;
-animation:pulse 2s infinite;
+background:linear-gradient(90deg,#b20710,#e50914,#ff2e38);
+background-size:300% 300%;
+animation:progressMove 3s linear infinite;
 }
 
-@keyframes pulse{
-0%{opacity:.6}
-50%{opacity:1}
-100%{opacity:.6}
+@keyframes progressMove{
+0%{
+background-position:0% 50%;
+}
+100%{
+background-position:100% 50%;
+}
 }
 
 .status{
-color:#bdbdbd;
-margin-bottom:25px;
+color:#bfbfbf;
 font-size:14px;
+margin-bottom:28px;
 }
 
 .verify{
 display:flex;
 justify-content:center;
 align-items:center;
-gap:10px;
+gap:16px;
+margin-bottom:30px;
 color:white;
-margin-bottom:25px;
+font-size:24px;
+font-weight:700;
 }
 
 .verify input{
-width:20px;
-height:20px;
+width:34px;
+height:34px;
 cursor:pointer;
+animation:checkboxPulse 1.8s infinite;
+}
+
+@keyframes checkboxPulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.12);
+}
+
+100%{
+transform:scale(1);
+}
+
 }
 
 button{
 width:100%;
-padding:14px;
+padding:18px;
 border:none;
-border-radius:10px;
+border-radius:14px;
 background:#e50914;
 color:white;
-font-size:17px;
-font-weight:bold;
+font-size:20px;
+font-weight:800;
 cursor:pointer;
-transition:.3s;
-opacity:.5;
+transition:.25s;
+opacity:.55;
+
+box-shadow:
+0 0 20px rgba(229,9,20,.3);
 }
 
 button:hover{
-transform:scale(1.03);
+transform:translateY(-3px);
+box-shadow:
+0 0 35px rgba(229,9,20,.5);
 }
 
 button:disabled{
@@ -123,10 +183,36 @@ cursor:not-allowed;
 }
 
 .footer{
-margin-top:20px;
-font-size:12px;
-color:#888;
+margin-top:24px;
+font-size:13px;
+color:#9f9f9f;
 }
+
+@media(max-width:600px){
+
+.card{
+padding:30px;
+}
+
+.logo{
+font-size:34px;
+}
+
+h1{
+font-size:28px;
+}
+
+.verify{
+font-size:20px;
+}
+
+.verify input{
+width:30px;
+height:30px;
+}
+
+}
+
 </style>
 
 </head>
@@ -135,6 +221,10 @@ color:#888;
 <div class="card">
 
 <div class="logo">MOVIE ACCESS</div>
+
+<div class="badge">
+✓ VERIFIED CONTENT PORTAL
+</div>
 
 <h1>Exclusive Content Available</h1>
 
@@ -174,18 +264,23 @@ const btn = document.getElementById("continueBtn");
 verify.addEventListener("change",()=>{
 
 if(verify.checked){
+
 btn.disabled=false;
 btn.style.opacity="1";
+
 }else{
+
 btn.disabled=true;
-btn.style.opacity=".5";
+btn.style.opacity=".55";
+
 }
 
 });
 
 btn.addEventListener("click",()=>{
 
-btn.innerHTML="Redirecting...";
+btn.innerHTML="Preparing Access...";
+btn.disabled=true;
 
 setTimeout(()=>{
 
