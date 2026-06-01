@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exclusive Access</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.85)),
+url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1600');
+background-size:cover;
+background-position:center;
+overflow:hidden;
+}
+
+.card{
+width:90%;
+max-width:500px;
+background:rgba(20,20,20,.85);
+backdrop-filter:blur(10px);
+padding:35px;
+border-radius:20px;
+text-align:center;
+border:1px solid rgba(255,255,255,.1);
+box-shadow:0 0 30px rgba(0,0,0,.5);
+}
+
+.logo{
+font-size:34px;
+font-weight:bold;
+color:#e50914;
+margin-bottom:10px;
+}
+
+h1{
+color:white;
+font-size:28px;
+margin-bottom:10px;
+}
+
+.desc{
+color:#cfcfcf;
+line-height:1.6;
+margin-bottom:25px;
+}
+
+.progress-container{
+background:#2b2b2b;
+height:10px;
+border-radius:30px;
+overflow:hidden;
+margin-bottom:15px;
+}
+
+.progress{
+height:100%;
+width:85%;
+background:#e50914;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{opacity:.6}
+50%{opacity:1}
+100%{opacity:.6}
+}
+
+.status{
+color:#bdbdbd;
+margin-bottom:25px;
+font-size:14px;
+}
+
+.verify{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:10px;
+color:white;
+margin-bottom:25px;
+}
+
+.verify input{
+width:20px;
+height:20px;
+cursor:pointer;
+}
+
+button{
+width:100%;
+padding:14px;
+border:none;
+border-radius:10px;
+background:#e50914;
+color:white;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+opacity:.5;
+}
+
+button:hover{
+transform:scale(1.03);
+}
+
+button:disabled{
+cursor:not-allowed;
+}
+
+.footer{
+margin-top:20px;
+font-size:12px;
+color:#888;
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<div class="logo">MOVIE ACCESS</div>
+
+<h1>Exclusive Content Available</h1>
+
+<p class="desc">
+Trending movie content and fan favorites are ready to access.
+Complete verification to continue.
+</p>
+
+<div class="progress-container">
+<div class="progress"></div>
+</div>
+
+<div class="status">
+Verification Progress: 85%
+</div>
+
+<div class="verify">
+<input type="checkbox" id="verify">
+<label for="verify">I am not a robot</label>
+</div>
+
+<button id="continueBtn" disabled>
+Continue Access
+</button>
+
+<div class="footer">
+Secure Verification • Fast Access • Mobile Friendly
+</div>
+
+</div>
+
+<script>
+
+const verify = document.getElementById("verify");
+const btn = document.getElementById("continueBtn");
+
+verify.addEventListener("change",()=>{
+
+if(verify.checked){
+btn.disabled=false;
+btn.style.opacity="1";
+}else{
+btn.disabled=true;
+btn.style.opacity=".5";
+}
+
+});
+
+btn.addEventListener("click",()=>{
+
+btn.innerHTML="Redirecting...";
+
+setTimeout(()=>{
+
+window.location.href="YOUR_LINK_HERE";
+
+},1500);
+
+});
+
+</script>
+
+</body>
+</html>
